@@ -69,4 +69,11 @@ cursor = conexao.cursor()
 # pesquisar = input("Digite o curso que deseja pesquisar: ")
 # cursor.execute("SELECT nome, idade FROM alunos WHERE curso = ?", (pesquisar,))
 # for linha in cursor.fetchall():
-#     print(f"Nome: {linha[0]} | Idade: {linha[1]}")  
+#     print(f"Nome: {linha[0]} | Idade: {linha[1]}") 
+
+
+#Deletar dados do banco
+cursor.execute("DELETE FROM alunos WHERE id = ?", (1,))
+conexao.commit()
+#Sempre fechar a conexão com o banco de dados
+conexao.close()
