@@ -36,16 +36,37 @@ cursor = conexao.cursor()
 
 
 #Inserir varios alunos uma vez só
-alunos =[
-    ("Yago", 28, "Direito"),
-    ("Jessica", 24, "computação"),
-    ("Breno", 22, "Computação")
-]
-#executemany pemite inserir multiplas linhas de uma vez só
-cursor.executemany("""
-INSERT INTO alunos(nome, idade, curso)
-VALUES(?, ?, ?)
-""",
-(alunos)
-)
-conexao.commit()
+# alunos =[
+#     ("Yago", 28, "Direito"),
+#     ("Jessica", 24, "computação"),
+#     ("Breno", 22, "Computação")
+# ]
+# #executemany pemite inserir multiplas linhas de uma vez só
+# cursor.executemany("""
+# INSERT INTO alunos(nome, idade, curso)
+# VALUES(?, ?, ?)
+# """,
+# (alunos)
+# )
+# conexao.commit()
+
+#Atualizar dados no banco 
+# cursor.execute("""
+# UPDATE alunos
+# SET idade = ?, curso = ?
+# WHERE id = ?              
+# """, (61, "Medicina", 2)
+# )
+# conexao.commit()
+
+#Função listar dados mo banco
+# cursor.execute("SELECT * FROM alunos")
+# #fetchall traz todos os dados da tabela
+# for linha in cursor.fetchall():
+#     print(f"ID: {linha[0]} | Nome: {linha[1]} | Idade: {linha[2]} | Curso: {linha[3]}")
+# print("-" * 120)
+
+# pesquisar = input("Digite o curso que deseja pesquisar: ")
+# cursor.execute("SELECT nome, idade FROM alunos WHERE curso = ?", (pesquisar,))
+# for linha in cursor.fetchall():
+#     print(f"Nome: {linha[0]} | Idade: {linha[1]}")  
